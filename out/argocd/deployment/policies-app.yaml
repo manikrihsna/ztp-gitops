@@ -14,7 +14,7 @@ spec:
     namespace: policies-sub
   project: policy-app-project
   source:
-    path: /home/ansible/gitops/policygen
+    path: policygen
     repoURL: https://github.com/manikrihsna/ztp-gitops.git
     targetRevision: main
     # uncomment the below plugin if you will be adding the plugin binaries in the same repo->dir where
