@@ -44,7 +44,7 @@ spec:
         bmcAddress: "idrac-virtualmedia+https://xxxxx/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "sno-amd-bmh-secret"
-        bootMACAddress: "B8:CE:F6:0E:C0:07"
+        bootMACAddress: "xxxxxxx"
         bootMode: "UEFI"
         rootDeviceHints:
           hctl: '0:1:0'
