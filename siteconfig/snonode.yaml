@@ -41,7 +41,7 @@ spec:
     nodes:
       - hostName: "sno-amd.dcws.lab"
         role: "master"
-        bmcAddress: "idrac-virtualmedia+https://172.16.0.31/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "idrac-virtualmedia+https://xxxxx/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "sno-amd-bmh-secret"
         bootMACAddress: "B8:CE:F6:0E:C0:07"
@@ -53,7 +53,7 @@ spec:
         nodeNetwork:
 #          interfaces:
 #            - name: eno12409
-#              macAddress: "B8:CE:F6:0E:C0:07"
+#              macAddress: "xxxxxxxx"
 #          config:
 #            interfaces:
 #              - name: eno12409
