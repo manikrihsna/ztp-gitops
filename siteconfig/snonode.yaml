@@ -10,7 +10,7 @@ spec:
   pullSecretRef:
     name: "assisted-deployment-pull-secret"
   clusterImageSetNameRef: "img4.10.16-x86-64-appsub"
-  sshPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINizu8UK0SvdhZrBmTzcDSL2X/jPigdK1V3Co77LjC8G kni@provision.dcws3.lab"
+  sshPublicKey: "ssh-ed25519  kni@provision.dcws3.lab"
   clusters:
   - clusterName: "snonode"
     networkType: "OVNKubernetes"
@@ -40,10 +40,10 @@ spec:
     nodes:
       - hostName: "sno-amd.dcws.lab"
         role: "master"
-        bmcAddress: "idrac-virtualmedia://172.13.0.25/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "idrac-virtualmedia://xxxxx/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "sno-amd-bmh-secret"
-        bootMACAddress: "0C:42:A1:D5:BE:7E"
+        bootMACAddress: "xxxxxxxx"
         bootMode: "UEFI"
         rootDeviceHints:
           deviceName: "/dev/sdc"      
@@ -51,16 +51,16 @@ spec:
         nodeNetwork:
           interfaces:
             - name: eno33
-              macAddress: "0C:42:A1:D5:BE:7E"
+              macAddress: "xxxxxxx"
           config:
             interfaces:
               - name: eno33
                 type: ethernet
                 state: up
-                macAddress: "0C:42:A1:D5:BE:7E"
+                macAddress: "xxxxxxx"
                 ipv4:
                   address:
-                  - ip: 192.168.42.25
+                  - ip: xxxxxxxx
                     prefix-length: 24
                   enabled: true                        
                   # For SNO sites with static IP addresses, the node-specific,
