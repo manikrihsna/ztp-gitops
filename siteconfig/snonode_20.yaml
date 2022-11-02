@@ -1,0 +1,81 @@
+# example-node1-bmh-secret & assisted-deployment-pull-secret need to be created under same namespace example-sno
+---
+apiVersion: ran.openshift.io/v1
+kind: SiteConfig
+metadata:
+  name: "snonode-20"
+  namespace: "snonode-20"
+spec:
+  baseDomain: "dcws3.lab"
+  pullSecretRef:
+    name: "assisted-deployment-pull-secret"
+  clusterImageSetNameRef: "img4.10.16-x86-64-appsub"
+  sshPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINizu8UK0SvdhZrBmTzcDSL2X/jPigdK1V3Co77LjC8G kni@provision.dcws3.lab"
+  clusters:
+  - clusterName: "snonode-20"
+    networkType: "OVNKubernetes"
+    clusterLabels:
+      # These example cluster labels correspond to the bindingRules in the PolicyGenTemplate examples
+      du-profile: "v4.10"
+      # These example cluster labels correspond to the bindingRules in the PolicyGenTemplate examples in ../policygentemplates:
+      # ../policygentemplates/common-ranGen.yaml will apply to all clusters with 'common: true'
+      common: true
+      # ../policygentemplates/group-du-sno-ranGen.yaml will apply to all clusters with 'group-du-sno: ""'
+      group-du-sno: ""
+      # ../policygentemplates/example-sno-site.yaml will apply to all clusters with 'sites: "example-sno"'
+      # Normally this should match or contain the cluster name so it only applies to a single cluster
+      sites : "snonode"
+    clusterNetwork:
+      - cidr: 10.128.0.0/14
+        hostPrefix: 24
+    machineNetwork:
+      - cidr: 192.168.42.0/24
+    serviceNetwork:
+      - 172.30.0.0/16
+        #    additionalNTPSources:
+        #      - 1111:2222:3333:4444::2
+    # Optionally; This can be used to override the KlusterletAddonConfig that is creted for this cluster:
+    #crTemplates:
+    #  KlusterletAddonConfig: "KlusterletAddonConfigOverride.yaml"
+    nodes:
+      - hostName: "snonode-20-amd.dcws.lab"
+        role: "master"
+        bmcAddress: "idrac-virtualmedia://172.13.0.20/redfish/v1/Systems/System.Embedded.1"
+        bmcCredentialsName:
+          name: "snonode-20-amd-bmh-secret"
+        bootMACAddress: "0C:42:A1:D5:BE:86"
+        bootMode: "UEFI"
+        rootDeviceHints:
+          deviceName: "/dev/sdc"      
+#commenting nmstate parameters       
+        nodeNetwork:
+          interfaces:
+            - name: eno33
+              macAddress: "0C:42:A1:D5:BE:86"
+          config:
+            interfaces:
+              - name: eno33
+                type: ethernet
+                state: up
+                macAddress: "0C:42:A1:D5:BE:86"
+                ipv4:
+                  address:
+                  - ip: 192.168.42.20
+                    prefix-length: 24
+                  enabled: true                        
+                  # For SNO sites with static IP addresses, the node-specific,
+                  # API and Ingress IPs should all be the same and configured on
+                  # the interface
+                  #                  - ip: 1111:2222:3333:4444::aaaa:1
+                  #prefix-length: 64
+            dns-resolver:
+              config:
+                search:
+                - dcws3.lab
+                server:
+                - 192.168.42.51
+            routes:
+              config:
+              - destination: 0.0.0.0/0
+                next-hop-interface: eno33
+                next-hop-address: 192.168.42.1

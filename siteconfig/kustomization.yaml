@@ -3,3 +3,4 @@ kind: Kustomization
 
 generators:
 - snonode.yaml
+- snonode_20.yaml
