@@ -40,27 +40,27 @@ spec:
     nodes:
       - hostName: "sno-amd.dcws.lab"
         role: "master"
-        bmcAddress: "idrac-virtualmedia://xxxxx/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "idrac-virtualmedia://172.13.0.25/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "sno-amd-bmh-secret"
-        bootMACAddress: "xxxxxxxx"
+        bootMACAddress: "0C:42:A1:D5:BE:7E"
         bootMode: "UEFI"
         rootDeviceHints:
-          deviceName: "/dev/sdc"      
+          deviceName: "/dev/nvme0n1"      
 #commenting nmstate parameters       
         nodeNetwork:
           interfaces:
             - name: eno33
-              macAddress: "xxxxxxx"
+              macAddress: "0C:42:A1:D5:BE:7E"
           config:
             interfaces:
               - name: eno33
                 type: ethernet
                 state: up
-                macAddress: "xxxxxxx"
+                macAddress: "0C:42:A1:D5:BE:7E"
                 ipv4:
                   address:
-                  - ip: xxxxxxxx
+                  - ip: 192.168.42.25
                     prefix-length: 24
                   enabled: true                        
                   # For SNO sites with static IP addresses, the node-specific,
