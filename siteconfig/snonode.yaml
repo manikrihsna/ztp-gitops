@@ -10,7 +10,7 @@ spec:
   pullSecretRef:
     name: "assisted-deployment-pull-secret"
   clusterImageSetNameRef: "img4.10.16-x86-64-appsub"
-  sshPublicKey: "ssh-ed25519  kni@provision.dcws3.lab"
+  sshPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINizu8UK0SvdhZrBmTzcDSL2X/jPigdK1V3Co77LjC8G kni@provision.dcws3.lab"
   clusters:
   - clusterName: "snonode"
     networkType: "OVNKubernetes"
