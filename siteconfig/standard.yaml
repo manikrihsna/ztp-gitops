@@ -160,7 +160,7 @@ spec:
         bmcAddress: "idrac-virtualmedia://172.16.0.35/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "ztp-node4-bmh-secret"
-        bootMACAddress: " B8:CE:F6:0E:BF:F6"
+        bootMACAddress: "B8:CE:F6:0E:BF:F6"
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
