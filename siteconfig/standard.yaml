@@ -8,7 +8,7 @@ metadata:
 spec:
   baseDomain: "dcws.lab"
   pullSecretRef:
-    name: "assisted-deployment-pull-secret"
+    name: "pull-secret"
   clusterImageSetNameRef: "openshift-4.12"
   sshPublicKey: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMSK2+NjOg11nWUCEBFrrlce1WUhHGiB/acRathL5W80 kni@ipi-prov.dcws.lab"
   # Optionally; This can be used to configure desired BIOS setting on all hosts in this site:
