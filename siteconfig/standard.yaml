@@ -142,7 +142,7 @@ spec:
                   auto-dns: false
                 link-aggregation:
                   mode: active-backup
-                  port:
+                  slaves:
                   - eno12399
                   - eno12409
             dns-resolver:
