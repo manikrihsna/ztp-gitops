@@ -102,6 +102,7 @@ spec:
                 macAddress: "B8:CE:F6:0E:BF:86"
                 ipv4:
                   dhcp: true
+                  auto-dns: false
                   enabled: true
             dns-resolver:
               config:
