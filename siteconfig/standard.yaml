@@ -89,7 +89,7 @@ spec:
         bootMode: "UEFI"
         rootDeviceHints:
           hctl: '/dev/nvme0n1'
-        nodeNetwork:  
+ #       nodeNetwork:  
         networkConfig: &BOND  
           interfaces:
           - name: bond0 
