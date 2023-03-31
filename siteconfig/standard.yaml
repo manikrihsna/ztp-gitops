@@ -89,20 +89,20 @@ spec:
         bootMode: "UEFI"
         rootDeviceHints:
           hctl: '/dev/nvme0n1'
- #       nodeNetwork:  
-        networkConfig: &BOND  
+        nodeNetwork:  
+  #      networkConfig: &BOND  
           interfaces:
-          - name: bond0 
-            type: bond
-            state: up
-            ipv4:
-              dhcp: true
-              enabled: true
-            link-aggregation:
-              mode: active-backup       
-              port:
-              - eno12399
-              - eno12409               
+            - name: eno12399
+              macAddress: "B8:CE:F6:0E:BF:86"
+          config:
+            interfaces:
+              - name: eno12399
+                type: ethernet
+                state: up
+                macAddress: "B8:CE:F6:0E:BF:86"
+                ipv4:
+                  dhcp: true
+                  enabled: true
             dns-resolver:
               config:
                 search:
