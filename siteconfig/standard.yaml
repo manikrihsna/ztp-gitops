@@ -90,7 +90,7 @@ spec:
         rootDeviceHints:
           hctl: '/dev/nvme0n1'
         nodeNetwork:  
- #       networkConfig: &BOND  
+        networkConfig: &BOND  
           interfaces:
           - name: bond0 
             type: bond
