@@ -136,7 +136,6 @@ spec:
                 type: bond
                 state: up
                 ipv4:
-                  dhcp: false
                   address:
                   - ip: 192.168.32.46
                   enabled: true
@@ -151,12 +150,12 @@ spec:
                 - dcws.lab
                 server:
                 - 192.168.31.50
-#            routes:
-#              config:
-#              - destination: 0.0.0.0/0
-#                next-hop-interface: eno12399
-#                next-hop-address: 192.168.32.1
-#                table-id: 254
+            routes:
+              config:
+              - destination: 0.0.0.0/0
+                next-hop-interface: eno12399
+                next-hop-address: 192.168.32.1
+                table-id: 254
       - hostName: "ztp-node4.dcws.lab"
         role: "worker"
         bmcAddress: "idrac-virtualmedia://172.16.0.35/redfish/v1/Systems/System.Embedded.1"
