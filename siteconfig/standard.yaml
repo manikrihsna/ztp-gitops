@@ -192,12 +192,12 @@ spec:
                 - dcws.lab
                 server:
                 - 192.168.31.50                                    
-            routes:
-              config:
-              - destination: 0.0.0.0/0
-                next-hop-interface: eno12399
-                next-hop-address: 192.168.32.1
-                table-id: 254
+#            routes:
+#              config:
+#              - destination: 0.0.0.0/0
+#                next-hop-interface: eno12399
+#                next-hop-address: 192.168.32.1
+#                table-id: 254
       - hostName: "ztp-node5.dcws.lab"
         role: "worker"
         bmcAddress: "idrac-virtualmedia://172.16.0.45/redfish/v1/Systems/System.Embedded.1"
