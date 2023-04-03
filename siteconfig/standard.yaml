@@ -169,28 +169,29 @@ spec:
         rootDeviceHints:
           hctl: '/dev/nvme0n1'
         nodeNetwork:  
-        networkConfig: &BOND  
           interfaces:
-          - name: bond0 
-            type: bond
-            state: up
-            ipv4:
-              dhcp: false
-              address:
-              - ip: 192.168.32.35
-                prefix-length: 24
-              enabled: true
-            link-aggregation:
-              mode: active-backup       
-              port:
-              - eno12399
-              - eno12409               
+            - name: eno12399
+              macAddress: "B8:CE:F6:0E:BF:F6"       
+          config:		
+            interfaces:    
+              - name: bond0 
+                type: bond
+                state: up
+                ipv4:
+                  dhcp: true
+                  enabled: true
+                  auto-dns: false
+                link-aggregation:
+                  mode: active-backup       
+                  slaves:
+                  - eno12399
+                  - eno12409  
             dns-resolver:
               config:
                 search:
                 - dcws.lab
                 server:
-                - 192.168.31.50
+                - 192.168.31.50                                    
             routes:
               config:
               - destination: 0.0.0.0/0
