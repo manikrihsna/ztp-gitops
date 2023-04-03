@@ -93,7 +93,7 @@ spec:
   #      networkConfig: &BOND  
           interfaces:
             - name: eno12399
-              macAddress: "B8:CE:F6:0E:BF:86"
+              macAddress: "B8:CE:F6:0E:BF:EE"
           config:
             interfaces:
               - name: eno12399
