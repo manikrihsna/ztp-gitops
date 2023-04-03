@@ -130,6 +130,8 @@ spec:
           interfaces:
             - name: eno12399
               macAddress: "10:70:FD:86:4D:FA"
+            - name: eno12409
+              macAddress: "10:70:FD:86:4D:FB"              
           config:		
             interfaces:
               - name: bond0
@@ -138,8 +140,8 @@ spec:
                 ipv4:
                   address:
                   - ip: 192.168.32.46
-                    macAddress: "10:70:FD:86:4D:FA"
                     prefix-length: 24
+                  macAddress: "10:70:FD:86:4D:FA"  
                   enabled: true
                   auto-dns: false
                 link-aggregation:
