@@ -99,7 +99,7 @@ spec:
               - name: eno12399
                 type: ethernet
                 state: up
-                macAddress: "B8:CE:F6:0E:BF:86"
+ #               macAddress: "B8:CE:F6:0E:BF:86"
                 ipv4:
                   dhcp: true
                   auto-dns: false
