@@ -146,12 +146,12 @@ spec:
                   port:
                   - eno12399
                   - eno12409
-                dns-resolver:
-                  config:
-                    search:
-                    - dcws.lab
-                    server:
-                    - 192.168.31.50
+            dns-resolver:
+              config:
+                search:
+                - dcws.lab
+                server:
+                - 192.168.31.50
 #            routes:
 #              config:
 #              - destination: 0.0.0.0/0
