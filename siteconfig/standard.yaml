@@ -138,6 +138,7 @@ spec:
                 ipv4:
                   address:
                   - ip: 192.168.32.46
+                    prefix-length: 24
                   enabled: true
                   auto-dns: false
                 link-aggregation:
