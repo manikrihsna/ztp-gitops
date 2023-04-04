@@ -157,7 +157,7 @@ spec:
               config:
                 - destination: 0.0.0.0/0
                   next-hop-address: 192.168.32.1
-                  next-hop-interface: eno12399
+                  next-hop-interface: bond0
                   table-id: 254
       - hostName: "ztp-node4.dcws.lab"
         role: "worker"
