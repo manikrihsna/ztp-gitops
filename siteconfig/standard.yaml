@@ -51,7 +51,7 @@ spec:
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
-          hctl: '/dev/nvme0n1'
+          deviceName: '/dev/nvme0n1'
         nodeNetwork: 
           interfaces:
             - name: eno12399
@@ -94,7 +94,7 @@ spec:
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
-          hctl: '/dev/nvme0n1'
+          deviceName: '/dev/nvme0n1'
         nodeNetwork:  
           interfaces:
             - name: eno12399
@@ -137,7 +137,7 @@ spec:
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
-          hctl: '/dev/nvme0n1'
+          deviceName: '/dev/nvme0n1'
         nodeNetwork: 
           interfaces:
             - name: eno12399
@@ -180,7 +180,7 @@ spec:
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
-          hctl: '/dev/nvme0n1'
+          deviceName: '/dev/nvme0n1'
         nodeNetwork:  
           interfaces:
             - name: eno12399
@@ -223,7 +223,7 @@ spec:
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
-          hctl: '/dev/nvme0n1'
+          deviceName: '/dev/nvme0n1'
         nodeNetwork:  
           interfaces:
             - name: eno12399
