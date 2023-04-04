@@ -56,17 +56,23 @@ spec:
           interfaces:
             - name: eno12399
               macAddress: "B8:CE:F6:0E:BF:86"
+            - name: eno12409
+              macAddress: "B8:CE:F6:0E:BF:87"
           config:
             interfaces:
-              - name: eno12399
-                type: ethernet
-                state: up
-                macAddress: "B8:CE:F6:0E:BF:86"
-                ipv4:
-                  address:
-                  - ip: 192.168.32.30
-                    prefix-length: 24
-                  enabled: true
+            - name: bond0
+              type: bond
+              state: up
+              ipv4:
+                address:
+                - ip: 192.168.32.30
+                  prefix-length: 24
+                enabled: true
+              link-aggregation:
+                mode: active-backup
+                port:
+                - eno12399
+                - eno12409
             dns-resolver:
               config:
                 search:
@@ -75,10 +81,10 @@ spec:
                 - 192.168.31.50
             routes:
               config:
-              - destination: 0.0.0.0/0
-                next-hop-interface: eno12399
-                next-hop-address: 192.168.32.1
-                table-id: 254
+                - destination: 0.0.0.0/0
+                  next-hop-address: 192.168.32.1
+                  next-hop-interface: bond0
+                  table-id: 254
       - hostName: "ztp-node2.dcws.lab"
         role: "master"
         bmcAddress: "idrac-virtualmedia://172.16.0.33/redfish/v1/Systems/System.Embedded.1"
@@ -90,32 +96,38 @@ spec:
         rootDeviceHints:
           hctl: '/dev/nvme0n1'
         nodeNetwork:  
-  #      networkConfig: &BOND  
           interfaces:
             - name: eno12399
               macAddress: "B8:CE:F6:0E:BF:EE"
+            - name: eno12409
+              macAddress: "B8:CE:F6:0E:BF:EF"
           config:
             interfaces:
-              - name: eno12399
-                type: ethernet
-                state: up
- #               macAddress: "B8:CE:F6:0E:BF:86"
-                ipv4:
-                  dhcp: true
-                  auto-dns: false
-                  enabled: true
+            - name: bond0
+              type: bond
+              state: up
+              ipv4:
+                address:
+                - ip: 192.168.32.33
+                  prefix-length: 24
+                enabled: true
+              link-aggregation:
+                mode: active-backup
+                port:
+                - eno12399
+                - eno12409
             dns-resolver:
               config:
                 search:
                 - dcws.lab
                 server:
                 - 192.168.31.50
-#            routes:
-#              config:
-#              - destination: 0.0.0.0/0
-#                next-hop-interface: eno12399
-#                next-hop-address: 192.168.32.1
-#                table-id: 254
+            routes:
+              config:
+                - destination: 0.0.0.0/0
+                  next-hop-address: 192.168.32.1
+                  next-hop-interface: bond0
+                  table-id: 254
       - hostName: "ztp-node3.dcws.lab"
         role: "master"
         bmcAddress: "idrac-virtualmedia://172.16.0.46/redfish/v1/Systems/System.Embedded.1"
@@ -172,33 +184,36 @@ spec:
         nodeNetwork:  
           interfaces:
             - name: eno12399
-              macAddress: "B8:CE:F6:0E:BF:F6"       
-          config:		
-            interfaces:    
-              - name: bond0 
-                type: bond
-                state: up
-                ipv4:
-                  dhcp: true
-                  enabled: true
-                  auto-dns: false
-                link-aggregation:
-                  mode: active-backup       
-                  port:
-                  - eno12399
-                  - eno12409  
+              macAddress: "B8:CE:F6:0E:BF:F6"
+            - name: eno12409
+              macAddress: "B8:CE:F6:0E:BF:F7"
+          config:
+            interfaces:
+            - name: bond0
+              type: bond
+              state: up
+              ipv4:
+                address:
+                - ip: 192.168.32.35
+                  prefix-length: 24
+                enabled: true
+              link-aggregation:
+                mode: active-backup
+                port:
+                - eno12399
+                - eno12409
             dns-resolver:
               config:
                 search:
                 - dcws.lab
                 server:
-                - 192.168.31.50                                    
-#            routes:
-#              config:
-#              - destination: 0.0.0.0/0
-#                next-hop-interface: eno12399
-#                next-hop-address: 192.168.32.1
-#                table-id: 254
+                - 192.168.31.50
+            routes:
+              config:
+                - destination: 0.0.0.0/0
+                  next-hop-address: 192.168.32.1
+                  next-hop-interface: bond0
+                  table-id: 254
       - hostName: "ztp-node5.dcws.lab"
         role: "worker"
         bmcAddress: "idrac-virtualmedia://172.16.0.45/redfish/v1/Systems/System.Embedded.1"
@@ -210,22 +225,26 @@ spec:
         rootDeviceHints:
           hctl: '/dev/nvme0n1'
         nodeNetwork:  
-        networkConfig: &BOND  
           interfaces:
-          - name: bond0 
-            type: bond
-            state: up
-            ipv4:
-              dhcp: false
-              address:
-              - ip: 192.168.32.45
-                prefix-length: 24
-              enabled: true
-            link-aggregation:
-              mode: active-backup       
-              port:
-              - eno12399
-              - eno12409               
+            - name: eno12399
+              macAddress: "10:70:FD:86:4D:A6"
+            - name: eno12409
+              macAddress: "10:70:FD:86:4D:A7"
+          config:
+            interfaces:
+            - name: bond0
+              type: bond
+              state: up
+              ipv4:
+                address:
+                - ip: 192.168.32.45
+                  prefix-length: 24
+                enabled: true
+              link-aggregation:
+                mode: active-backup
+                port:
+                - eno12399
+                - eno12409
             dns-resolver:
               config:
                 search:
@@ -234,8 +253,8 @@ spec:
                 - 192.168.31.50
             routes:
               config:
-              - destination: 0.0.0.0/0
-                next-hop-interface: eno12399
-                next-hop-address: 192.168.32.1
-                table-id: 254
+                - destination: 0.0.0.0/0
+                  next-hop-address: 192.168.32.1
+                  next-hop-interface: bond0
+                  table-id: 254
                 
