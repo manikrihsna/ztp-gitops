@@ -130,23 +130,17 @@ spec:
           interfaces:
             - name: eno12399
               macAddress: "10:70:FD:86:4D:FA"
-            - name: eno12409
-              macAddress: "10:70:FD:86:4D:FB"
           config:
             interfaces:
-            - name: bond0
-              type: bond
-              state: up
-              ipv4:
-                address:
-                - ip: 192.168.32.46
-                  prefix-length: 24
-                enabled: true
-              link-aggregation:
-                mode: active-backup
-                port:
-                - eno12399
-                - eno12409
+              - name: eno12399
+                type: ethernet
+                state: up
+                macAddress: "10:70:FD:86:4D:FA"
+                ipv4:
+                  address:
+                  - ip: 192.168.32.46
+                    prefix-length: 24
+                  enabled: true
             dns-resolver:
               config:
                 search:
@@ -155,10 +149,10 @@ spec:
                 - 192.168.31.50
             routes:
               config:
-                - destination: 0.0.0.0/0
-                  next-hop-address: 192.168.32.1
-                  next-hop-interface: bond0
-                  table-id: 254
+              - destination: 0.0.0.0/0
+                next-hop-interface: eno12399
+                next-hop-address: 192.168.32.1
+                table-id: 254
       - hostName: "ztp-node4.dcws.lab"
         role: "worker"
         bmcAddress: "idrac-virtualmedia://172.16.0.35/redfish/v1/Systems/System.Embedded.1"
