@@ -88,7 +88,7 @@ spec:
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
-          deviceName: '/dev/nvme0n1'
+          deviceName: '/dev/sdc'
         nodeNetwork: 
           interfaces:
             - name: eno12399
