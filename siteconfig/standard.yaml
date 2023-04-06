@@ -163,27 +163,21 @@ spec:
         bootMode: "UEFI"
         rootDeviceHints:
           deviceName: '/dev/nvme0n1'
-        nodeNetwork:  
+        nodeNetwork: 
           interfaces:
             - name: eno12399
               macAddress: "B8:CE:F6:0E:BF:F6"
-            - name: eno12409
-              macAddress: "B8:CE:F6:0E:BF:F7"
           config:
             interfaces:
-            - name: bond0
-              type: bond
-              state: up
-              ipv4:
-                address:
-                - ip: 192.168.32.35
-                  prefix-length: 24
-                enabled: true
-              link-aggregation:
-                mode: active-backup
-                port:
-                - eno12399
-                - eno12409
+              - name: eno12399
+                type: ethernet
+                state: up
+                macAddress: "B8:CE:F6:0E:BF:F6"
+                ipv4:
+                  address:
+                  - ip: 192.168.32.35
+                    prefix-length: 24
+                  enabled: true
             dns-resolver:
               config:
                 search:
@@ -192,10 +186,10 @@ spec:
                 - 192.168.31.50
             routes:
               config:
-                - destination: 0.0.0.0/0
-                  next-hop-address: 192.168.32.1
-                  next-hop-interface: bond0
-                  table-id: 254
+              - destination: 0.0.0.0/0
+                next-hop-interface: eno12399
+                next-hop-address: 192.168.32.1
+                table-id: 254
       - hostName: "ztp-node5.dcws.lab"
         role: "worker"
         bmcAddress: "idrac-virtualmedia://172.16.0.45/redfish/v1/Systems/System.Embedded.1"
@@ -206,27 +200,21 @@ spec:
         bootMode: "UEFI"
         rootDeviceHints:
           deviceName: '/dev/sdb'
-        nodeNetwork:  
+        nodeNetwork: 
           interfaces:
             - name: eno12399
               macAddress: "10:70:FD:86:4D:A6"
-            - name: eno12409
-              macAddress: "10:70:FD:86:4D:A7"
           config:
             interfaces:
-            - name: bond0
-              type: bond
-              state: up
-              ipv4:
-                address:
-                - ip: 192.168.32.45
-                  prefix-length: 24
-                enabled: true
-              link-aggregation:
-                mode: active-backup
-                port:
-                - eno12399
-                - eno12409
+              - name: eno12399
+                type: ethernet
+                state: up
+                macAddress: "10:70:FD:86:4D:A6"
+                ipv4:
+                  address:
+                  - ip: 192.168.32.45
+                    prefix-length: 24
+                  enabled: true
             dns-resolver:
               config:
                 search:
@@ -235,8 +223,8 @@ spec:
                 - 192.168.31.50
             routes:
               config:
-                - destination: 0.0.0.0/0
-                  next-hop-address: 192.168.32.1
-                  next-hop-interface: bond0
-                  table-id: 254
+              - destination: 0.0.0.0/0
+                next-hop-interface: eno12399
+                next-hop-address: 192.168.32.1
+                table-id: 254
                 
