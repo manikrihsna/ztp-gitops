@@ -13,6 +13,6 @@ spec:
   sourceFiles:
     - fileName: ClusterLogging.yaml
       policyName: "config-policy"
-    - fileName: ClusterLogSubscription.yaml
-      policyName: "subscriptions-policy"
+#    - fileName: ClusterLogSubscription.yaml
+#      policyName: "subscriptions-policy"
       
