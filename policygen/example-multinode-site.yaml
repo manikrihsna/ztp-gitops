@@ -11,5 +11,5 @@ spec:
   # du-profile: "v4.10"
   mcp: "worker"
   sourceFiles:
-    - fileName: StorageSubscription.yaml
-      policyName: "subscriptions-policy"
+    - fileName: OperatorHub.yaml
+      policyName: "config-policy"
