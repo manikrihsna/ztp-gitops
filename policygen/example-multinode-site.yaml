@@ -11,5 +11,5 @@ spec:
   # du-profile: "v4.10"
   mcp: "worker"
   sourceFiles:
-    - fileName: StorageClass.yaml
+    - fileName: StorageSubscription.yaml
       policyName: "config-policy"
