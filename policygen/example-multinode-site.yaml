@@ -11,7 +11,7 @@ spec:
   # du-profile: "v4.10"
   mcp: "worker"
   sourceFiles:
-    - fileName: ClusterLogOperGroup.yaml
+    - fileName: Csmoperator.yaml
       policyName: "config-policy"
 
 #    - fileName: ClusterLogSubscription.yaml
