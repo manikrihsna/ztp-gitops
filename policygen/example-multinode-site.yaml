@@ -1,0 +1,21 @@
+---
+apiVersion: ran.openshift.io/v1
+kind: PolicyGenTemplate
+metadata:
+  name: "example-multinode-site"
+  namespace: "ztp-site"
+spec:
+  bindingRules:
+    # These policies will correspond to all clusters with this label:
+    sites: "standard"
+  # du-profile: "v4.10"
+  mcp: "worker"
+  sourceFiles:
+#    - fileName: ClusterLogOperGroup.yaml
+#      policyName: "config-policy"
+    - fileName: Csmoperator.yaml
+      policyName: "config-policy"      
+
+#    - fileName: ClusterLogSubscription.yaml
+#      policyName: "subscriptions-policy"
+      

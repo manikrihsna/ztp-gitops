@@ -3,6 +3,6 @@ kind: StorageClass
 metadata:
   annotations:
     ran.openshift.io/ztp-deploy-wave: "10"
-  name: example-storage-class
+  name: test-sc
 provisioner: kubernetes.io/no-provisioner
 reclaimPolicy: Delete
