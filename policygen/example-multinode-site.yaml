@@ -14,7 +14,7 @@ spec:
       metadata:
         labels:
           machineconfiguration.openshift.io/role: worker
-        name: generic
+        name: 01-worker-container-runtime
       spec:
         config:
           storage:
