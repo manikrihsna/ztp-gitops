@@ -14,7 +14,7 @@ spec:
       metadata:
         labels:
           machineconfiguration.openshift.io/role: worker
-        name: enable-workload-partitioning
+        name: generic
       spec:
         config:
           storage:
