@@ -23,7 +23,7 @@ spec:
                 source: data:text/plain;charset=utf-8;base64,W2NyaW8ucnVudGltZV0KcGlkc19saW1pdCA9IDE2Mzg0IApbY3Jpby5pbWFnZV0KaW5zZWN1cmVfcmVnaXN0cmllcyA9IFsiMC4wLjAuMC8wIl0=
               mode: 420
               overwrite: true
-              path: /home/core/test.txt
+              path: /etc/crio/crio.conf.d/00-default
               user:
                 name: root
       
