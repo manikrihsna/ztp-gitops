@@ -34,8 +34,8 @@ spec:
     ingressVIP: 192.168.32.225
     serviceNetwork:
       - 172.30.0.0/16
-#    machineNetwork:
-#      - cidr: 192.168.32.0/24        
+    machineNetwork:
+      - cidr: 192.168.32.0/24        
         #    additionalNTPSources:
         #      - 1111:2222:3333:4444::2
     # Optionally; This can be used to override the KlusterletAddonConfig that is created for this cluster:
