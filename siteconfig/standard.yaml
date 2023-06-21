@@ -56,23 +56,17 @@ spec:
           interfaces:
             - name: eno12399
               macAddress: "B4:83:51:06:21:88"
-            - name: eno12409
-              macAddress: "B4:83:51:06:21:89"
           config:
             interfaces:
-            - name: bond0
-              type: bond
-              state: up
-              ipv4:
-                address:
-                - ip: 192.168.32.60
-                  prefix-length: 24
-                enabled: true
-              link-aggregation:
-                mode: 802.3ad
-                port:
-                - eno12399
-                - eno12409
+              - name: eno12399
+                type: ethernet
+                state: up
+                macAddress: "B4:83:51:06:21:88"
+                ipv4:
+                  address:
+                  - ip: 192.168.32.60
+                    prefix-length: 24
+                  enabled: true
             dns-resolver:
               config:
                 search:
@@ -83,7 +77,7 @@ spec:
               config:
                 - destination: 0.0.0.0/0
                   next-hop-address: 192.168.32.1
-                  next-hop-interface: bond0
+                  next-hop-interface: eno12399
                   table-id: 254        
       - hostName: "ztp-node2.dcws.lab"
         role: "master"
