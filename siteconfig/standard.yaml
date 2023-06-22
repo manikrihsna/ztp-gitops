@@ -105,7 +105,7 @@ spec:
                   prefix-length: 24
                 enabled: true
               link-aggregation:
-                mode: balance-rr
+                mode: 802.3ad
                 port:
                 - eno12399
                 - eno12409
