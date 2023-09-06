@@ -14,9 +14,9 @@ spec:
     namespace: clusters-sub
   project: ztp-app-project
   source:
-    path: ztp/gitops-subscriptions/argocd/example/siteconfig
+    path: siteconfig
     repoURL: https://github.com/manikrihsna/ztp-gitops.git
-    targetRevision: 4.12-compact
+    targetRevision: 4.12-amd
     # uncomment the below plugin if you will be adding the plugin binaries in the same repo->dir where
     # the sitconfig.yaml exist AND use the ../../hack/patch-argocd-dev.sh script to re-patch the deployment-repo-server
 #    plugin:
