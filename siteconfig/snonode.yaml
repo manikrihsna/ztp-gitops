@@ -10,13 +10,13 @@ spec:
   pullSecretRef:
     name: "assisted-deployment-pull-secret"
   clusterImageSetNameRef: "img4.10.16-x86-64-appsub"
-  sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDFLq9gOE4AFcX+lxQbIawsv7iBC0JW3Z2/2qy3fAJl9AOfBX6PHakWMeE3/TqLSpalVmoSu3w3my/txbv9g0yZsyvchDoArvR6Rq4A95aBgGbjneZSHPRjFLfw9mf76fxZAZF51x70Dc5+7ZWNgO57XPrFvv9UrSTWMRWEgl73XWbc54QgyHg9lf4XuPZV5ItD2/MIlA0tq3NwMn+skYlGpR8Rx6y5BWkRKnkV0B5/A7zZqJbApprheM5TxWsZy0sXJ3/RJYkZ9JqMWGiJFJv1h46psrrv3Et9auGtA9176fxRtEU0pkjvG2CT6geidtBy+lPLiN7/iqQZyabodvwf3bkrvk6RrU9bSdenk7CFtk3WNJds/X8a5BHW+dzDnuvinnnJ5+/3MhEkJkdILvA7MbYXjzYNUSZicwX0cryNZe0YDWMb2/wMEqMt5R+pcwURibKNAq8Gkw2WY5ixnNu3af6VV+JIAG0Yqaw1glOVfRJ9lJK3oCLp0os6QgKfWCU= ansible@agent-prov.dcws.lab"
+  sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDFZ1kDEsJ0sU96gqphGpq0H/YqRcoL2IML4G4JYrbCdW7o0A/Vqyy3aKiDCYWWed8hMLdLpoIxyj2Wl7w9kyObnUwbdADcNFXCKHFvtIK5leXR0JEHc5u2MwDuUYPvj3QfMmd2vVNoZM38eQZH90MBqUcVF11+zZmXeDsPAnyB7E7NFfuLJNaTpDeGY1tUIA4vMpaBGnG0hvz3cN/fH2BNKUZvJwaa0KLXykqDMEPUEDS6tGleihT1uIz7C/UWiDkTrefsiSpjMLbX2Kx2p0dqkAUcIKKfEisYvZMNrjNLqjp+ZeXILSz+DkRKWwczxw+2BdsxbwauQAX3FjrO0EiPZqLnSkgHtJtjebSMfpvqFOEY9RYwUqOY6SuMn112K6AXGhisXc3XT5C8jur6H2e3OCC4S2TJAwU4FX4iF8ZwMEMvavmfzmmFfRDh66f2/fZHzOq5MIxrZSOvIdYK3Ukl4fVsBhbuHht83n1Ek/YSwxCCKzThx819apwPUf/digM= ansible@csah-amd.dcws.lab" 
   clusters:
   - clusterName: "snonode"
     networkType: "OVNKubernetes"
     clusterLabels:
       # These example cluster labels correspond to the bindingRules in the PolicyGenTemplate examples
-      du-profile: "v4.12"
+      du-profile: "v4.10"
       # These example cluster labels correspond to the bindingRules in the PolicyGenTemplate examples in ../policygentemplates:
       # ../policygentemplates/common-ranGen.yaml will apply to all clusters with 'common: true'
       common: true
@@ -29,7 +29,7 @@ spec:
       - cidr: 10.128.0.0/14
         hostPrefix: 24
     machineNetwork:
-      - cidr: 192.168.32.0/24
+      - cidr: 192.168.35.0/24
     serviceNetwork:
       - 172.30.0.0/16
         #    additionalNTPSources:
@@ -38,7 +38,7 @@ spec:
     #crTemplates:
     #  KlusterletAddonConfig: "KlusterletAddonConfigOverride.yaml"
     nodes:
-      - hostName: "agent-prov.dcws.lab"
+      - hostName: "csah-amd.dcws.lab"
         role: "master"
         bmcAddress: "idrac-virtualmedia://xxxxx/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
@@ -60,7 +60,7 @@ spec:
                 macAddress: ""
                 ipv4:
                   address:
-                  - ip: xxxxxxxx
+                  - ip: 192.168.35.88
                     prefix-length: 24
                   enabled: true                        
                   # For SNO sites with static IP addresses, the node-specific,
