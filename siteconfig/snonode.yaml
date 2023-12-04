@@ -9,7 +9,7 @@ spec:
   baseDomain: "dcws.lab"
   pullSecretRef:
     name: "assisted-deployment-pull-secret"
-  clusterImageSetNameRef: "img4.10.16-x86-64-appsub"
+  clusterImageSetNameRef: "img4.12.17-x86-64-appsub"
   sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDFZ1kDEsJ0sU96gqphGpq0H/YqRcoL2IML4G4JYrbCdW7o0A/Vqyy3aKiDCYWWed8hMLdLpoIxyj2Wl7w9kyObnUwbdADcNFXCKHFvtIK5leXR0JEHc5u2MwDuUYPvj3QfMmd2vVNoZM38eQZH90MBqUcVF11+zZmXeDsPAnyB7E7NFfuLJNaTpDeGY1tUIA4vMpaBGnG0hvz3cN/fH2BNKUZvJwaa0KLXykqDMEPUEDS6tGleihT1uIz7C/UWiDkTrefsiSpjMLbX2Kx2p0dqkAUcIKKfEisYvZMNrjNLqjp+ZeXILSz+DkRKWwczxw+2BdsxbwauQAX3FjrO0EiPZqLnSkgHtJtjebSMfpvqFOEY9RYwUqOY6SuMn112K6AXGhisXc3XT5C8jur6H2e3OCC4S2TJAwU4FX4iF8ZwMEMvavmfzmmFfRDh66f2/fZHzOq5MIxrZSOvIdYK3Ukl4fVsBhbuHht83n1Ek/YSwxCCKzThx819apwPUf/digM= ansible@csah-amd.dcws.lab" 
   clusters:
   - clusterName: "snonode"
