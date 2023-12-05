@@ -43,21 +43,21 @@ spec:
         bmcAddress: "idrac-virtualmedia://xxxxx/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "sno-amd-bmh-secret"
-        bootMACAddress: ""
+        bootMACAddress: "B8:3F:D2:D0:CB:A4"
         bootMode: "UEFI"
         rootDeviceHints:
           deviceName: "/dev/nvme0n1"      
 #commenting nmstate parameters       
         nodeNetwork:
           interfaces:
-            - name: eno33
-              macAddress: ""
+            - name: eno12399
+              macAddress: "B8:CE:F6:13:0A:34"
           config:
             interfaces:
-              - name: eno33
+              - name: ens2f0
                 type: ethernet
                 state: up
-                macAddress: ""
+                macAddress: "B8:3F:D2:D0:CB:A4"
                 ipv4:
                   address:
                   - ip: 192.168.35.88
