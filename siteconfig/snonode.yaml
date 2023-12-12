@@ -71,11 +71,11 @@ spec:
             dns-resolver:
               config:
                 search:
-                - domain.com
+                - dcws.lab
                 server:
-                - 192.168.xxxxx
+                - 192.168.31.50
             routes:
               config:
               - destination: 0.0.0.0/0
-                next-hop-interface: eno33
-                next-hop-address: xxxxxx
+                next-hop-interface: ens2f0
+                next-hop-address: 192.168.35.1
