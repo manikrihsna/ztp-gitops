@@ -42,7 +42,7 @@ spec:
         role: "master"
         bmcAddress: "idrac-virtualmedia://172.16.0.88/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
-          name: "sno-amd-bmh-secret"
+          name: "ztp-node1-bmh-secret"
         bootMACAddress: "B8:3F:D2:D0:CB:A4"
         bootMode: "UEFI"
         rootDeviceHints:
