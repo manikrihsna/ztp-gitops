@@ -40,7 +40,7 @@ spec:
     nodes:
       - hostName: "csah-amd.dcws.lab"
         role: "master"
-        bmcAddress: "idrac-virtualmedia://xxxxx/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "idrac-virtualmedia://172.16.0.88/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "sno-amd-bmh-secret"
         bootMACAddress: "B8:3F:D2:D0:CB:A4"
