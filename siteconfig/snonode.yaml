@@ -59,7 +59,6 @@ spec:
               - name: ens2f0
                 type: ethernet
                 state: up
-                macAddress: ""
                 ipv4:
                   address:
                   - ip: 192.168.35.88
