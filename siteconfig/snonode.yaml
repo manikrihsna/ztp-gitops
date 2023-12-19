@@ -52,8 +52,8 @@ spec:
           interfaces:
             - name: eno12399
               macAddress: "B8:CE:F6:13:0A:34"
-             - name: ens2f0
-               macAddress: "B8:3F:D2:D0:CB:A4"
+            - name: ens2f0
+              macAddress: "B8:3F:D2:D0:CB:A4"
           config:
             interfaces:
               - name: ens2f0
