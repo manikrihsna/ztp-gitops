@@ -56,8 +56,8 @@ spec:
               macAddress: "B8:3F:D2:D0:CB:A4"
           config:
             interfaces:
-              - name: ens2f0
-                type: ethernet
+              - name: bond0
+                type: bond
                 state: up
                 ipv4:
                   address:
