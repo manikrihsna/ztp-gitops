@@ -83,5 +83,5 @@ spec:
             routes:
               config:
               - destination: 0.0.0.0/0
-                next-hop-interface: ens2f0
+                next-hop-interface: bond0
                 next-hop-address: 192.168.35.1
