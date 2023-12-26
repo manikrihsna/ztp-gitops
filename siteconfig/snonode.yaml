@@ -69,10 +69,10 @@ spec:
                   #                  - ip: 1111:2222:3333:4444::aaaa:1
                   #prefix-length: 64
                 link-aggregation:
-                mode: 802.3ad
-                port:
-                - eno12399
-                - ens2f0
+                  mode: 802.3ad
+                  port:
+                  - eno12399
+                  - ens2f0
              dns-resolver:
               config:
                 search:
