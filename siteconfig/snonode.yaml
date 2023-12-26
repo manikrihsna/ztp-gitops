@@ -55,30 +55,30 @@ spec:
               macAddress: "B8:3F:D2:D0:CB:A4"
           config:
             interfaces:
-              - name: bond0
-                type: bond
-                state: up
-                ipv4:
-                  address:
-                  - ip: 192.168.35.88
-                    prefix-length: 24
-                  enabled: true                        
+            - name: bond0
+              type: bond
+              state: up
+              ipv4:
+                address:
+                - ip: 192.168.35.88
+                  prefix-length: 24
+                enabled: true                        
                   # For SNO sites with static IP addresses, the node-specific,
                   # API and Ingress IPs should all be the same and configured on
                   # the interface
                   #                  - ip: 1111:2222:3333:4444::aaaa:1
                   #prefix-length: 64
-                link-aggregation:
-                  mode: 802.3ad
-                  port:
-                  - eno12399
-                  - ens2f0
-             dns-resolver:
-              config:
-                search:
-                - dcws.lab
-                server:
-                - 192.168.31.50
+              link-aggregation:
+                mode: 802.3ad
+                port:
+                - eno12399
+                - ens2f0
+            dns-resolver:
+             config:
+               search:
+               - dcws.lab
+               server:
+               - 192.168.31.50
             routes:
               config:
               - destination: 0.0.0.0/0
