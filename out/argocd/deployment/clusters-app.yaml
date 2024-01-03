@@ -14,7 +14,7 @@ spec:
     namespace: clusters-sub
   project: ztp-app-project
   source:
-    path: Siteconfig
+    path: SiteConfig
     repoURL: https://github.com/manikrihsna/ztp-gitops.git
     targetRevision: ztp-4.14
     # uncomment the below plugin if you will be adding the plugin binaries in the same repo->dir where
