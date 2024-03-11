@@ -9,8 +9,8 @@ spec:
   baseDomain: "dcws.lab"
   pullSecretRef:
     name: "assisted-deployment-pull-secret"
-  clusterImageSetNameRef: "img4.14.0-x86-64-appsub"
-  sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC/ZrdUFF5W5QyBTA0GiH8N9i5Xlz1Nw/TLfRlW+gEgSh13wfd+u1vvodMeR/nsQoKsI8lQxRVrx75zKO/XjAUZIxr2ubinJKA/iiwgIzdZpKfRbLLTWBXeXXWksGB73YQaBOcuX/JF9Ttud7U2c29/peCGJktaqOgL2XPopsQKQvPwb29S9e0GKf978RO5HjkvB3jYpwaQDSYBPPHbOmh3lRaIoZYl/se2VvTTuos5WrhZO64R/vDjSFexVtXDc5Vu1uaWa028ObwXWqyHr/EPXd2deR9SP7f8sCwnz8RraYE/PElKcu6TICs/iSRD7eNX40biG2yV+765kfd6KF9K+/8AHY2rODQkDlV917O+30M/NfqkpO71L6NpqtjH27PKSK2XmvlAV5/E3Yg3Z05onFJKHfwBJkMhIBDY1hiaJjAGK8SIzuQv/aWkSRPiWPfziOYa1ZLoav8mqXGBaZtoDqtbNSgwTBicneiUjXbmB4zL277Sgb/ifb88GBdntZs= ansible@bastion.dcws.lab"
+  clusterImageSetNameRef: "img4.14.15-x86-64-appsub"
+  sshPublicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCG9Kq3NqjxbIzt9wleKjbiU8cJ7RMdZi5BJjhGEa7KBI2HHm1SqsGiHoPHhjnUBHXY0x+Lvp+gns5O8D6mEssOdZyflz0BW+Vmt0Joc4r3LG3m/Nl6ArUy6LoF0HzQ8al1wVIKe1LnTp2hq5X6gwQb8S1GB0uqn9wAiS3FmQWvuvsfvkcG7EPcaEZ1H1n3cjhmc/m1DiUcJTiRXIA4Mi5CW3F8F7CCxx0GjsHlv1ZJo9hJcLmC3wo/geYbg/Zn7kfImli4AsSf2biiCSFHypoAptg87qr38zIN6POhwdA0jlyzhl3aVCYBLU3kONWgxFe89ZeuzEMyTI0GZTAV51lOiSFnlx1sjmAF5fwlCFR21ejhWlJRHnBhPTDL9O2TzzhojGkPwZD2Yc5Q2n8pgBP6SmgGJ8TU0zc/HCOSBXDr86N3+AkvrBC/umjMZX9R8zwXypty/5FhPMCA6iSXTjgRsn79pOAiddQl5B5I41dAzR5P/yGEpUcT8duMhovOOB8= ansible@ipi-amd.dcws.lab"
   clusters:
   - clusterName: "compact"
     networkType: "OVNKubernetes"
@@ -32,10 +32,10 @@ spec:
       - cidr: 10.128.0.0/14
         hostPrefix: 24
     # For 3-node and standard clusters with static IPs, the API and Ingress IPs must be configured here
-    apiVIP: 192.168.36.224
-    ingressVIP: 192.168.36.225
+    apiVIP: 192.168.35.224
+    ingressVIP: 192.168.35.225
     machineNetwork:
-      - cidr: 192.168.36.0/24
+      - cidr: 192.168.35.0/24
     serviceNetwork:
       - 172.30.0.0/16
     additionalNTPSources:
@@ -48,20 +48,20 @@ spec:
     nodes:
       - hostName: "ztp-node1.dcws.lab"
         role: "master"
-        bmcAddress: "idrac-virtualmedia://172.16.0.61/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "idrac-virtualmedia://172.16.0.82/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "ztp-node1-bmh-secret"
-        bootMACAddress: "B4:83:51:06:1F:D8"
+        bootMACAddress: "B8:3F:D2:DC:4E:D4"
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
           deviceName: '/dev/nvme0n1'
         nodeNetwork:
           interfaces:
-            - name: eno12399
-              macAddress: "B4:83:51:06:1F:D8"
-            - name: ens2f1np1
-              macAddress: "E8:EB:D3:CF:E8:9B"
+            - name: eno12399np0
+              macAddress: "B8:3F:D2:DC:4E:D4"
+            - name: ens2f1np0
+              macAddress: "10:70:FD:43:C8:F8"
           config:
             interfaces:
             - name: bond0
@@ -69,42 +69,42 @@ spec:
               state: up
               ipv4:
                 address:
-                - ip: 192.168.36.61
+                - ip: 192.168.35.82
                   prefix-length: 24
                 enabled: true
               link-aggregation:
                 mode: 802.3ad
                 port:
-                - eno12399
-                - ens2f1np1   
+                - eno12399np0
+                - ens2f1np0 
             dns-resolver:
               config:
                 search:
                 - dcws.lab
                 server:
-                - 192.168.36.62
+                - 192.168.35.75
             routes:
               config:
               - destination: 0.0.0.0/0
                 next-hop-interface: bond0
-                next-hop-address: 192.168.36.1
+                next-hop-address: 192.168.35.1
                 table-id: 254
       - hostName: "ztp-node2.dcws.lab"
         role: "master"
-        bmcAddress: "idrac-virtualmedia://172.16.0.68/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "idrac-virtualmedia://172.16.0.83/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "ztp-node2-bmh-secret"
-        bootMACAddress: "B4:83:51:08:E0:5C"
+        bootMACAddress: "B8:3F:D2:D0:CD:FC"
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
           deviceName: '/dev/nvme0n1'
         nodeNetwork:
           interfaces:
-            - name: eno12399
-              macAddress: "B4:83:51:08:E0:5C"
-            - name: ens2f1np1
-              macAddress: "B8:3F:D2:0A:9B:F1"
+            - name: eno12399np0
+              macAddress: "B8:3F:D2:D0:CD:FC"
+            - name: ens2f1np0
+              macAddress: "E8:EB:D3:0B:56:AC"
           config:
             interfaces:
             - name: bond0
@@ -112,42 +112,42 @@ spec:
               state: up
               ipv4:
                 address:
-                - ip: 192.168.36.68
+                - ip: 192.168.35.83
                   prefix-length: 24
                 enabled: true
               link-aggregation:
                 mode: 802.3ad
                 port:
-                - eno12399
-                - ens2f1np1
+                - eno12399np0
+                - ens2f1np0
             dns-resolver:
               config:
                 search:
                 - dcws.lab
                 server:
-                - 192.168.36.62
+                - 192.168.35.75
             routes:
               config:
               - destination: 0.0.0.0/0
                 next-hop-interface: bond0
-                next-hop-address: 192.168.36.1
+                next-hop-address: 192.168.35.1
                 table-id: 254
       - hostName: "ztp-node3.dcws.lab"
         role: "master"
-        bmcAddress: "idrac-virtualmedia://172.16.0.76/redfish/v1/Systems/System.Embedded.1"
+        bmcAddress: "idrac-virtualmedia://172.16.0.84/redfish/v1/Systems/System.Embedded.1"
         bmcCredentialsName:
           name: "ztp-node3-bmh-secret"
-        bootMACAddress: "B8:3F:D2:DC:62:2A"
+        bootMACAddress: "B8:3F:D2:D0:CB:80"
         # Use UEFISecureBoot to enable secure boot for this node
         bootMode: "UEFI"
         rootDeviceHints:
           deviceName: '/dev/nvme0n1'
         nodeNetwork:
           interfaces:
-            - name: eno12399
-              macAddress: "B8:3F:D2:DC:62:2A"
-            - name: ens1f0np0
-              macAddress: "B8:3F:D2:0A:90:60"
+            - name: eno12399np0
+              macAddress: "B8:3F:D2:D0:CB:80"
+            - name: ens2f1np0
+              macAddress: "0:70:FD:6E:62:AE"
           config:
             interfaces:
             - name: bond0
@@ -155,24 +155,24 @@ spec:
               state: up
               ipv4:
                 address:
-                - ip: 192.168.36.76
+                - ip: 192.168.35.84
                   prefix-length: 24
                 enabled: true
               link-aggregation:
                 mode: 802.3ad
                 port:
-                - eno12399
-                - ens1f0np0
+                - eno12399np0
+                - ens2f1np0
             dns-resolver:
               config:
                 search:
                 - dcws.lab
                 server:
-                - 192.168.36.62
+                - 192.168.35.75
             routes:
               config:
               - destination: 0.0.0.0/0
                 next-hop-interface: bond0
-                next-hop-address: 192.168.36.1
+                next-hop-address: 192.168.35.1
                 table-id: 254
         
