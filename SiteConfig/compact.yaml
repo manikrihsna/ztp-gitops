@@ -147,7 +147,7 @@ spec:
             - name: eno12399np0
               macAddress: "B8:3F:D2:D0:CB:80"
             - name: ens2f1np0
-              macAddress: "0:70:FD:6E:62:AE"
+              macAddress: "10:70:FD:6E:62:AE"
           config:
             interfaces:
             - name: bond0
